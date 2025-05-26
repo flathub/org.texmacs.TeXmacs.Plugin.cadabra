@@ -2,7 +2,7 @@
 <component type="addon">
   <id>org.texmacs.TeXmacs.Plugin.cadabra</id>
   <extends>org.texmacs.TeXmacs</extends>
-  <name>Macaulay2 and Giac</name>
+  <name>Cadabra2</name>
   <url type="homepage">https://cadabra.science/</url>
   <summary>Adds support for Cadabra2. Plugin name: org.texmacs.TeXmacs.Plugin.cadabra</summary>
   <project_license>GPL-3.0</project_license>
