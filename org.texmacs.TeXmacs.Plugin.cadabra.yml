@@ -71,9 +71,12 @@ modules:
       - cp -ru /app/plugins/cadabra/PYTHONPATH=python/cdb/* /app/plugins/cadabra/lib/python3.12/site-packages/cdb/
       - rm -r /app/plugins/cadabra/PYTHONPATH=python/cdb
       - cp -ru /app/plugins/cadabra/PYTHONPATH=python/* /app/plugins/cadabra/lib/python3.12/site-packages/cdb/
+      - install -Dm644 --target-directory=${FLATPAK_DEST}/share/metainfo ../${FLATPAK_ID}.metainfo.xml
     cleanup:
       - "PYTHONPATH=python/*"
     sources:
       - type: git
         url: https://github.com/kpeeters/cadabra2.git
         commit: 337b83016d267b3f5b9947a56dfb0013f8941871
+      - type: file
+        path: org.texmacs.TeXmacs.Plugin.cadabra.metainfo.xml
