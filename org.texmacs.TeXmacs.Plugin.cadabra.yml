@@ -1,7 +1,7 @@
 id: org.texmacs.TeXmacs.Plugin.cadabra
 runtime: org.texmacs.TeXmacs
 runtime-version: stable
-sdk: org.kde.Sdk//6.9
+sdk: org.kde.Sdk//6.10
 build-extension: true
 separate-locales: false
 build-options:
@@ -28,7 +28,6 @@ modules:
     build-commands:
       - ./bootstrap.sh --prefix=/app/plugins/cadabra --with-toolset=gcc --with-icu --with-python=python3
       - ./b2 install -j$FLATPAK_BUILDER_N_JOBS variant=release debug-symbols=off threading=multi runtime-link=shared link=shared,static toolset=gcc cxxstd=23 cflags="$CPPFLAGS $CFLAGS -fPIC -O3 -ffat-lto-objects" cxxflags="$CPPFLAGS $CXXFLAGS -fPIC -O3 -ffat-lto-objects" linkflags="$LDFLAGS" --layout=system --prefix=/app/plugins/cadabra
-
     sources:
       - type: archive
         url: https://archives.boost.io/release/1.87.0/source/boost_1_87_0.tar.bz2
@@ -68,9 +67,9 @@ modules:
       - -DPYTHON_SITE_PATH=PYTHONPATH=python
     post-install:
       - ln -s /app/plugins/cadabra/bin/cadabra2 /app/plugins/cadabra/bin/cadabra
-      - cp -ru /app/plugins/cadabra/PYTHONPATH=python/cdb/* /app/plugins/cadabra/lib/python3.12/site-packages/cdb/
+      - cp -ru /app/plugins/cadabra/PYTHONPATH=python/cdb/* /app/plugins/cadabra/lib/python3.13/site-packages/cdb/
       - rm -r /app/plugins/cadabra/PYTHONPATH=python/cdb
-      - cp -ru /app/plugins/cadabra/PYTHONPATH=python/* /app/plugins/cadabra/lib/python3.12/site-packages/cdb/
+      - cp -ru /app/plugins/cadabra/PYTHONPATH=python/* /app/plugins/cadabra/lib/python3.13/site-packages/cdb/
       - install -Dm644 --target-directory=${FLATPAK_DEST}/share/metainfo ../${FLATPAK_ID}.metainfo.xml
     cleanup:
       - "PYTHONPATH=python/*"
